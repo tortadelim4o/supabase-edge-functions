@@ -1,0 +1,31 @@
+{
+  "name": "supabase-base-functions",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "create:function": "node --loader ts-node/esm scripts/create-function.ts",
+    "deploy:all": "node --loader ts-node/esm scripts/deploy-all.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.3",
+    "@scalar/fastify-api-reference": "^1.34.2",
+    "@supabase/supabase-js": "^2.55.0",
+    "dotenv": "^17.2.1",
+    "fastify": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "supabase": "^2.34.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2"
+  }
+}
