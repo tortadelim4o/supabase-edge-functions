@@ -20,8 +20,6 @@ supabase/functions/  # Funções preparadas para deploy (gerado automaticamente)
    npm run create:function nome-da-funcao
    ```
 
-````
-
 Isso cria:
 
 * `functions/nome-da-funcao/index.ts` → handler para Supabase
@@ -47,6 +45,3 @@ Isso cria:
 * Node.js 18+
 * Supabase CLI configurado
 * Docker (opcional, mas recomendado pelo Supabase CLI)
-
-```
-````
