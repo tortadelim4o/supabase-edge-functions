@@ -14,7 +14,6 @@ const __dirname = path.dirname(__filename);
 
 const fastify = Fastify({ logger: true });
 
-// 📌 Swagger
 await fastify.register(swagger, {
   openapi: {
     info: {
@@ -63,7 +62,6 @@ fs.readdirSync(functionsDir).forEach((folder) => {
               throw new Error(`Função inválida ou não encontrada em ${fnPath}`);
             }
 
-            // 📌 Adapta o request para parecer com o Supabase (Deno.serve)
             const fakeRequest = {
               method: request.method,
               body: request.body,
@@ -75,7 +73,6 @@ fs.readdirSync(functionsDir).forEach((folder) => {
 
             const result = await fn(fakeRequest);
 
-            // 📌 Se a função retornar formato Supabase (Response)
             if (result instanceof Response) {
               const payload = await result.json();
               reply
@@ -85,7 +82,6 @@ fs.readdirSync(functionsDir).forEach((folder) => {
               return;
             }
 
-            // 📌 Se a função retornar { statusCode, body }
             if (result && typeof result === "object") {
               const status =
                 "statusCode" in result ? (result as any).statusCode : 200;
@@ -95,7 +91,6 @@ fs.readdirSync(functionsDir).forEach((folder) => {
                 .header("Content-Type", "application/json")
                 .send(payload ?? {});
             } else {
-              // 📌 Qualquer outro tipo de retorno
               reply
                 .code(200)
                 .header("Content-Type", "application/json")
