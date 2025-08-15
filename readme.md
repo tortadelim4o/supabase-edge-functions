@@ -6,10 +6,10 @@ Projeto base para criar, organizar e fazer deploy de **Functions** no Supabase c
 
 ```
 
-functions/ # Pasta com entrypoints para cada function
-src/core/ # Lógica principal de cada function
-scripts/ # Scripts utilitários
-supabase/functions/ # Funções preparadas para deploy (gerado automaticamente)
+functions/           # Pasta com entrypoints para cada function
+src/core/            # Lógica principal de cada function
+scripts/             # Scripts utilitários
+supabase/functions/  # Funções preparadas para deploy (gerado automaticamente)
 
 ```
 
@@ -24,13 +24,13 @@ supabase/functions/ # Funções preparadas para deploy (gerado automaticamente)
 
 Isso cria:
 
-- `functions/nome-da-funcao/index.ts` → handler para Supabase
-- `src/core/nome-da-funcao.ts` → lógica principal
+* `functions/nome-da-funcao/index.ts` → handler para Supabase
+* `src/core/nome-da-funcao.ts` → lógica principal
 
 2. **Editar lógica**
 
-   - Toda a lógica deve estar em `src/core/<nome>.ts`
-   - O `index.ts` da function só chama essa lógica
+   * Toda a lógica deve estar em `src/core/<nome>.ts`
+   * O `index.ts` da function só chama essa lógica
 
 3. **Deploy**
 
@@ -38,13 +38,15 @@ Isso cria:
    npm run deploy:all
    ```
 
-   - Apaga a pasta `supabase/`
-   - Copia funções e lógica para `supabase/functions/`
-   - Roda `supabase functions deploy <nome>`
+   * Apaga a pasta `supabase/`
+   * Copia funções e lógica para `supabase/functions/`
+   * Roda `supabase functions deploy <nome>`
 
 ## 📦 Requisitos
 
-- Node.js 18+
-- Supabase CLI configurado
-- Docker (opcional, mas recomendado pelo Supabase CLI)
+* Node.js 18+
+* Supabase CLI configurado
+* Docker (opcional, mas recomendado pelo Supabase CLI)
+
+```
 ````
